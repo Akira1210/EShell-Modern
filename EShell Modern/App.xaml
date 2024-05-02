@@ -1,0 +1,21 @@
+﻿<Application
+    x:Class="EShell_Modern.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:EShell_Modern">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.ThemeDictionaries>
+                <ResourceDictionary x:Key="Dark">
+                    <AcrylicBrush x:Key="GridBackground" TintColor="Black" TintOpacity="0.8" BackgroundSource="HostBackdrop" />
+                    <AcrylicBrush x:Key="BarBackground" TintColor="DimGray" TintOpacity="0.5" BackgroundSource="Backdrop" />
+                </ResourceDictionary>
+
+                <ResourceDictionary x:Key="Light">
+                    <AcrylicBrush x:Key="GridBackground" TintColor="White" TintOpacity="0.8" BackgroundSource="HostBackdrop" />
+                    <AcrylicBrush x:Key="BarBackground" TintColor="LightGray" TintOpacity="0.5" BackgroundSource="Backdrop" />
+                </ResourceDictionary>
+            </ResourceDictionary.ThemeDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

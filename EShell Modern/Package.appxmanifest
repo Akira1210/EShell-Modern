@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Package
+  xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+  xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
+  xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+  xmlns:iot="http://schemas.microsoft.com/appx/manifest/iot/windows10"
+  xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3"
+  xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
+  IgnorableNamespaces="uap mp iot uap3 rescap">
+
+  <Identity
+    Name="bb908dcf-ecc7-4d45-8f82-f7bbea5cf7db"
+    Publisher="CN=Jonat"
+    Version="1.0.0.0" />
+
+  <mp:PhoneIdentity PhoneProductId="bb908dcf-ecc7-4d45-8f82-f7bbea5cf7db" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+
+  <Properties>
+    <DisplayName>EShell_Modern</DisplayName>
+    <PublisherDisplayName>Jonat</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+  </Properties>
+
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.0.0" MaxVersionTested="10.0.0.0" />
+  </Dependencies>
+
+  <Resources>
+    <Resource Language="x-generate"/>
+  </Resources>
+
+  <Applications>
+    <Application Id="App"
+      Executable="$targetnametoken$.exe"
+      EntryPoint="EShell_Modern.App">
+      <uap:VisualElements
+        DisplayName="EShell_Modern"
+        Square150x150Logo="Assets\Square150x150Logo.png"
+        Square44x44Logo="Assets\Square44x44Logo.png"
+        Description="EShell_Modern"
+        BackgroundColor="transparent">
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
+        <uap:SplashScreen Image="Assets\SplashScreen.png" />
+      </uap:VisualElements>
+    </Application>
+  </Applications>
+
+  <Capabilities>
+    <rescap:Capability Name="broadFileSystemAccess" />
+    <rescap:Capability Name="packageManagement" />
+    <rescap:Capability Name="packageQuery" />
+    <Capability Name="internetClient" />
+    <uap:Capability Name="userAccountInformation"/>
+    <iot:Capability Name="systemManagement"/>
+    <uap:Capability Name="removableStorage"/>
+    <uap3:Capability Name="userNotificationListener"/>
+    <Capability Name="internetClientServer"/>
+    <Capability Name="privateNetworkClientServer"/>
+    <DeviceCapability Name="location"/>
+
+    
+  </Capabilities>
+</Package>
