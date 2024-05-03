@@ -127,7 +127,7 @@ namespace EShell_Modern
             BuildDate = BuildDate.Replace(".", "");
             BuildDate = BuildDate.Replace(" ", "_");
 
-            return Assembly.GetExecutingAssembly().GetName().Name + "\nInternal pre1" + " \nBuild 21." + ProcessArch + ".pre1." + BuildDate + "\n" + System.Environment.OSVersion;
+            return Assembly.GetExecutingAssembly().GetName().Name + "\nInternal pre1" + " \nBuild 22." + ProcessArch + ".pre1." + BuildDate + "\n" + System.Environment.OSVersion;
         }
 
         private void tClock_Tick(object sender, object e)
@@ -233,7 +233,7 @@ namespace EShell_Modern
         }
 
 
-        private async void CreateAppTileAsync(AppListEntry package, int Type) //Type 0 = UWP App   Type 1 = w32 App
+        private async void CreateAppTileAsync(AppListEntry package, int Type, int Mode) //Type 0 = UWP App   Type 1 = w32 App //Mode 1 = All apps //Mode 0 = Pinned Apps
         {
 
             var cmdApp = new Button();
@@ -268,7 +268,18 @@ namespace EShell_Modern
                 cmdApp.Click += w32AppClick;
                 cmdApp.RightTapped += w32AppRightClick;
             }
-            allApps.Add(cmdApp);
+            
+
+            if (Mode==1)
+            {
+                allApps.Add(cmdApp);
+            }
+
+            if (Mode==0)
+            {
+                lvMain.Items.Add(cmdApp);
+            }
+
             if (ActivePage == 1)
             {
                 AppCount++;
@@ -295,7 +306,7 @@ namespace EShell_Modern
                     foreach (AppListEntry packageDown in package)
                     //if (!package.IsFramework || !package.IsResourcePackage || !package.IsStub || !package.IsOptional)
                     {
-                        CreateAppTileAsync(packageDown, 0);
+                        CreateAppTileAsync(packageDown, 0, 1);
 
                     }
                 }
@@ -316,7 +327,7 @@ namespace EShell_Modern
                 {
                     //WIP
 
-                    CreateAppTileAsync(null, 1);
+                    CreateAppTileAsync(null, 1, 1);
 
 
                 }
@@ -382,7 +393,7 @@ namespace EShell_Modern
                     foreach (String appPin in appPath)
                     {
                         Package package = packageManager.FindPackageForUser("", appPin);
-                        CreateAppTileAsync(package.GetAppListEntries().First(), 0);
+                        CreateAppTileAsync(package.GetAppListEntries().First(), 0, 0);
                     }
 
                     //w32 Apps //allApps //WIP
@@ -390,7 +401,7 @@ namespace EShell_Modern
                     foreach (String path in w32Apps)
                     {
                         //WIP
-                        CreateAppTileAsync(null, 1);
+                        CreateAppTileAsync(null, 1, 0);
                     }
                 }
 
